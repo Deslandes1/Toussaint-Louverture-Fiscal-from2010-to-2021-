@@ -65,28 +65,15 @@ st.markdown(
         font-weight: bold;
     }
     
-    /* Styling for the strong white statement elements */
-    .branding-banner-left {
+    /* Strong White styling for the bottom right footer text */
+    .footer-white-right {
+        text-align: right !important;
         color: #ffffff !important;
         font-weight: 800 !important;
-        font-size: 1.05rem;
-        background: rgba(255, 255, 255, 0.08);
-        padding: 10px 15px;
-        border-radius: 6px;
-        border-left: 4px solid #ffffff;
-        margin-bottom: 20px;
-    }
-
-    .branding-banner-right {
-        color: #ffffff !important;
-        font-weight: 800 !important;
-        font-size: 1.05rem;
-        background: rgba(255, 255, 255, 0.08);
-        padding: 10px 15px;
-        border-radius: 6px;
-        border-right: 4px solid #ffffff;
-        text-align: right;
-        margin-bottom: 20px;
+        font-size: 0.9rem;
+        margin-top: 50px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
     </style>
     """,
@@ -150,19 +137,6 @@ with col_left:
     st.markdown('</div>', unsafe_allow_html=True)
 
 with col_right:
-    # Header Branding Split Columns for Left & Right Dual Display Placement
-    brand_col_l, brand_col_r = st.columns(2)
-    with brand_col_l:
-        st.markdown(
-            '<div class="branding-banner-left">© 2026 GLOBALINTERNET.PY | Global Software Architectures & Technology Innovation.</div>',
-            unsafe_allow_html=True
-        )
-    with brand_col_r:
-        st.markdown(
-            '<div class="branding-banner-right">© 2026 GLOBALINTERNET.PY | Global Software Architectures & Technology Innovation.</div>',
-            unsafe_allow_html=True
-        )
-    
     st.title("✈️ Toussaint Louverture Airport Revenue Tracking")
     st.markdown("### National Treasury Ingestion Overview (2010 - 2021)")
     
@@ -235,10 +209,10 @@ with col_right:
     
     st.dataframe(display_df, width='stretch', hide_index=True)
 
-# 6. Global Platform Footer
+# 6. Global Platform Footer (Updated to strong white alignment, pushed to the right side)
 st.markdown(
     """
-    <div style="text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); color: #94a3b8 !important; font-size: 0.85rem;">
+    <div class="footer-white-right">
         © 2026 GLOBALINTERNET.PY | Global Software Architectures & Technology Innovation.
     </div>
     """,
