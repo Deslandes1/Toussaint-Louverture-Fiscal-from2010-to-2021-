@@ -36,7 +36,7 @@ st.markdown(
     h1, h2, h3, h4, p, span, label, li, 
     div[data-testid="stWidgetLabel"] p, 
     div[data-testid="stMarkdownContainer"] p,
-    .stRadio label, .stRadio span {
+    .stRadio label, .stRadio span, .stSelectbox label {
         color: #ffffff !important;
     }
     
@@ -60,11 +60,6 @@ st.markdown(
         border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
     
-    .highlight-text {
-        color: #f1b517 !important;
-        font-weight: bold;
-    }
-    
     /* Strong White styling for the bottom right footer text */
     .footer-white-right {
         text-align: right !important;
@@ -80,7 +75,92 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# 3. Data Matrix Load Engine (2010 - 2021)
+# 3. Comprehensive Multilingual Dictionary Translation Layer
+translations = {
+    "English": {
+        "sidebar_title": "Airport Fiscal Engine",
+        "dev_by": "Developed by:",
+        "lang_select": "Select Language:",
+        "curr_select": "Select Display Currency Layer:",
+        "gourde_opt": "Haitian Gourde (HTG 🇭🇹)",
+        "usd_opt": "US Dollar (USD 🇺🇸)",
+        "tip": "💡 **Tip:** Hover your cursor over any point on the chart profile to reveal exact yearly totals instantly.",
+        "nat_focus": "National Focus",
+        "nat_desc": "Financial data framework representing state revenue generation streams monitored at Toussaint Louverture Airport hub.",
+        "main_title": "✈️ Toussaint Louverture Airport Revenue Tracking",
+        "main_sub": "National Treasury Ingestion Overview (2010 - 2021)",
+        "cum_usd": "Cumulative Revenue (USD)",
+        "cum_htg": "Cumulative Revenue (HTG)",
+        "graph_title": "Annual Airport Revenue Graph Generation",
+        "graph_x": "Fiscal Year",
+        "graph_y_usd": "Revenue in US Dollars (USD)",
+        "graph_y_htg": "Revenue in Gourdes (HTG)",
+        "generated": "Generated",
+        "ledger_title": "📊 Comprehensive Fiscal Summary Ledger",
+        "col_year": "Year",
+        "col_usd": "Revenue (USD)",
+        "col_rate": "Avg Exchange Rate",
+        "col_htg": "Revenue (HTG)",
+        "report_btn": "📥 Download Full Fiscal Report (.TXT)",
+        "report_success": "Report generated successfully! Check your downloads folder."
+    },
+    "Français": {
+        "sidebar_title": "Moteur Fiscal Aéroportuaire",
+        "dev_by": "Développé par :",
+        "lang_select": "Sélectionner la Langue :",
+        "curr_select": "Sélectionner la Devise d'Affichage :",
+        "gourde_opt": "Gourde Haïtienne (HTG 🇭🇹)",
+        "usd_opt": "Dollar Américain (USD 🇺🇸)",
+        "tip": "💡 **Conseil :** Passez votre curseur sur un point du graphique pour révéler instantanément les totaux annuels exacts.",
+        "nat_focus": "Objectif National",
+        "nat_desc": "Cadre de données financières représentant les flux de génération de revenus de l'État contrôlés à l'aéroport Toussaint Louverture.",
+        "main_title": "✈️ Suivi des Revenus de l'Aéroport Toussaint Louverture",
+        "main_sub": "Aperçu de l'Ingestion du Trésor National (2010 - 2021)",
+        "cum_usd": "Revenu Cumulé (USD)",
+        "cum_htg": "Revenu Cumulé (HTG)",
+        "graph_title": "Génération du Graphique des Revenus Annuels de l'Aéroport",
+        "graph_x": "Année Fiscale",
+        "graph_y_usd": "Revenus en Dollars US (USD)",
+        "graph_y_htg": "Revenus en Gourdes (HTG)",
+        "generated": "Généré",
+        "ledger_title": "📊 Grand Livre Récapitulatif Fiscal Complet",
+        "col_year": "Année",
+        "col_usd": "Revenu (USD)",
+        "col_rate": "Taux de Change Moyen",
+        "col_htg": "Revenu (HTG)",
+        "report_btn": "📥 Télécharger le Rapport Fiscal Complet (.TXT)",
+        "report_success": "Rapport généré avec succès ! Vérifiez votre dossier de téléchargement."
+    },
+    "Kreyòl Ayisyen": {
+        "sidebar_title": "Motè Fiskal Ayewopò",
+        "dev_by": "Devlope pa:",
+        "lang_select": "Chwazi Lang:",
+        "curr_select": "Chwazi Lajan pou Montre a:",
+        "gourde_opt": "Goud Ayisyen (HTG 🇭🇹)",
+        "usd_opt": "Dola Ameriken (USD 🇺🇸)",
+        "tip": "💡 **Konsèy:** Pase kòrsè a sou nenpòt pwen nan grafik la pou wè kantite lajan egzak pou chak ane imedyatman.",
+        "nat_focus": "Fokus Nasyonal",
+        "nat_desc": "Kadr done finansye ki montre lajan Leta Ayisyen fè nan ayewopò Entènasyonal Toussaint Louverture.",
+        "main_title": "✈️ Swiv Revni Ayewopò Toussaint Louverture",
+        "main_sub": "Apèsi sou Lajan ki Antre nan Trezò Piblik (2010 - 2021)",
+        "cum_usd": "Tout Revni Ansanm (USD)",
+        "cum_htg": "Tout Revni Ansanm (HTG)",
+        "graph_title": "Grafik Kwasans Revni Ayewopò a pa Ane",
+        "graph_x": "Ane Fiskal",
+        "graph_y_usd": "Revni an Dola Ameriken (USD)",
+        "graph_y_htg": "Revni an Goud (HTG)",
+        "generated": "Lajan Fèt",
+        "ledger_title": "📊 Kanè Rezime Fiskal Konplè",
+        "col_year": "Ane",
+        "col_usd": "Revni (USD)",
+        "col_rate": "Taux de Chanj Mwayen",
+        "col_htg": "Revni (HTG)",
+        "report_btn": "📥 Telechaje Rapò Fiskal Konplè a (.TXT)",
+        "report_success": "Rapò a fèt byen! Tcheke dosye telechajman ou."
+    }
+}
+
+# 4. Data Matrix Load Engine (2010 - 2021)
 @st.cache_data
 def load_airport_data():
     data = {
@@ -102,43 +182,52 @@ def load_airport_data():
 
 df = load_airport_data()
 
-# 4. Sidebar Branding Module (Fully readable text on dark background layer)
+# 5. Sidebar Setup & Language Matrix Mapping
 st.sidebar.markdown("## 🌐 GlobalInternet.py")
-st.sidebar.markdown("### Airport Fiscal Engine")
-st.sidebar.markdown("Developed by: **Gesner DESLANDES**")
+
+# Language Selector Setup
+selected_lang = st.sidebar.selectbox(
+    "Select Language / Chwazi Lang / Sélectionner Langue",
+    ["English", "Français", "Kreyòl Ayisyen"]
+)
+
+# Lock active translation library context
+ln = translations[selected_lang]
+
+st.sidebar.markdown(f"### {ln['sidebar_title']}")
+st.sidebar.markdown(f"{ln['dev_by']} **Gesner DESLANDES**")
 st.sidebar.markdown("---")
 
-# User Interactive Layer Toggle
+# Currency Toggle Engine mapped dynamically to selections
 currency_choice = st.sidebar.radio(
-    "Select Display Currency Layer:",
-    ["Haitian Gourde (HTG 🇭🇹)", "US Dollar (USD 🇺🇸)"]
+    ln["curr_select"],
+    [ln["gourde_opt"], ln["usd_opt"]]
 )
 
 st.sidebar.markdown("---")
-st.sidebar.caption("💡 **Tip:** Hover your cursor over any point on the chart profile to reveal exact yearly totals instantly.")
+st.sidebar.markdown(ln["tip"])
 
-# 5. Core Interface Split: Left Section (National Symbol) & Right Workspace
+# 6. Core Interface Split: Left Section (National Symbol) & Right Workspace
 col_left, col_right = st.columns([1, 3.2])
 
 with col_left:
     st.markdown('<div class="feature-card">', unsafe_allow_html=True)
-    st.subheader("National Focus")
+    st.subheader(ln["nat_focus"])
     
     # Active stable online flag reference from verified Wikimedia asset tree
     haitian_flag_url = "https://upload.wikimedia.org/wikipedia/commons/5/56/Flag_of_Haiti.svg"
     st.image(haitian_flag_url, caption="République d'Haïti", width='stretch')
     
     st.markdown(
-        "<p style='font-size: 0.85rem; color: #cbd5e1 !important; margin-top: 10px;'>"
-        "Financial data framework representing state revenue generation streams monitored at "
-        "Toussaint Louverture Airport hub.</p>",
+        f"<p style='font-size: 0.85rem; color: #cbd5e1 !important; margin-top: 10px;'>"
+        f"{ln['nat_desc']}</p>",
         unsafe_allow_html=True
     )
     st.markdown('</div>', unsafe_allow_html=True)
 
 with col_right:
-    st.title("✈️ Toussaint Louverture Airport Revenue Tracking")
-    st.markdown("### National Treasury Ingestion Overview (2010 - 2021)")
+    st.title(ln["main_title"])
+    st.markdown(f"### {ln['main_sub']}")
     
     # Mathematical Cumulative Calculation Aggregation
     total_usd = df["Revenue_USD"].sum()
@@ -148,26 +237,26 @@ with col_right:
     kpi1, kpi2 = st.columns(2)
     with kpi1:
         st.markdown(
-            f'<div class="metric-box"><h4>Cumulative Revenue (USD)</h4><h2>${total_usd:,.2f} USD</h2></div>', 
+            f'<div class="metric-box"><h4>{ln["cum_usd"]}</h4><h2>${total_usd:,.2f} USD</h2></div>', 
             unsafe_allow_html=True
         )
     with kpi2:
         st.markdown(
-            f'<div class="metric-box"><h4>Cumulative Revenue (HTG)</h4><h2>{total_htg:,.2f} HTG</h2></div>', 
+            f'<div class="metric-box"><h4>{ln["cum_htg"]}</h4><h2>{total_htg:,.2f} HTG</h2></div>', 
             unsafe_allow_html=True
         )
         
     st.markdown("---")
     
-    # Set context color scales based on layout selections
-    if currency_choice == "Haitian Gourde (HTG 🇭🇹)":
+    # Set context colors and selection mappings base on translated string comparisons
+    if currency_choice == ln["gourde_opt"]:
         y_column = "Revenue_HTG"
-        y_title = "Revenue in Gourdes (HTG)"
+        y_title = ln["graph_y_htg"]
         line_color = "#38bdf8"  # High contrast bright cyan
         hover_format = "HTG %{y:,.2f}"
     else:
         y_column = "Revenue_USD"
-        y_title = "Revenue in US Dollars (USD)"
+        y_title = ln["graph_y_usd"]
         line_color = "#f43f5e"  # High contrast vivid coral pink
         hover_format = "$%{y:,.2f}"
         
@@ -176,8 +265,8 @@ with col_right:
         df, 
         x="Year", 
         y=y_column, 
-        title=f"Annual Airport Revenue Graph Generation ({y_title})",
-        labels={"Year": "Fiscal Year", y_column: y_title},
+        title=f"{ln['graph_title']} ({y_title})",
+        labels={"Year": ln["graph_x"], y_column: y_title},
         markers=True
     )
     
@@ -185,7 +274,7 @@ with col_right:
         line_color=line_color, 
         line_width=4, 
         marker=dict(size=10, color="#ffffff", line=dict(color=line_color, width=2)),
-        hovertemplate="<b>Year:</b> %{x}<br><b>Generated:</b> " + hover_format + "<extra></extra>"
+        hovertemplate="<b>" + ln["graph_x"] + ":</b> %{x}<br><b>" + ln["generated"] + ":</b> " + hover_format + "<extra></extra>"
     )
     
     fig.update_layout(
@@ -200,16 +289,46 @@ with col_right:
     st.plotly_chart(fig, width='stretch')
     
     # Structural Ledger Summary Dataframe Viewport
-    st.markdown("### 📊 Comprehensive Fiscal Summary Ledger")
+    st.markdown(f"### {ln['ledger_title']}")
     
     display_df = df.copy()
-    display_df["Revenue_USD"] = display_df["Revenue_USD"].map("${:,.2f}".format)
-    display_df["Revenue_HTG"] = display_df["Revenue_HTG"].map("{:,.2f} HTG".format)
-    display_df["Avg_Exchange_Rate"] = display_df["Avg_Exchange_Rate"].map("{:.2f}".format)
+    
+    # Dynamic Renaming of Columns for the interactive UI matrix view
+    display_df.columns = [ln["col_year"], ln["col_usd"], ln["col_rate"], ln["col_htg"]]
+    
+    # Formatted mapping views
+    display_df[ln["col_usd"]] = display_df[ln["col_usd"]].map("${:,.2f}".format)
+    display_df[ln["col_htg"]] = display_df[ln["col_htg"]].map("{:,.2f} HTG".format)
+    display_df[ln["col_rate"]] = display_df[ln["col_rate"]].map("{:.2f}".format)
     
     st.dataframe(display_df, width='stretch', hide_index=True)
 
-# 6. Global Platform Footer (Updated to strong white alignment, pushed to the right side)
+    st.markdown("---")
+    
+    # 7. Dynamic Data Engine Report Compiler Execution Block
+    report_string = f"=== TOUSSAINT LOUVERTURE AIRPORT FISCAL REPORT ({selected_lang.upper()}) ===\n"
+    report_string += f"System Generated Archive under GlobalInternet.py Architecture Core\n"
+    report_string += f"Developer Lead: Gesner DESLANDES\n"
+    report_string += f"--------------------------------------------------\n"
+    report_string += f"TOTAL CUMULATIVE VOLUME USD: ${total_usd:,.2f} USD\n"
+    report_string += f"TOTAL CUMULATIVE VOLUME HTG: {total_htg:,.2f} HTG\n"
+    report_string += f"--------------------------------------------------\n\n"
+    report_string += f"YEAR | REVENUE (USD) | EXCHANGE RATE | REVENUE (HTG)\n"
+    
+    for idx, row in df.iterrows():
+        report_string += f"{int(row['Year'])} | ${row['Revenue_USD']:,.2f} | {row['Avg_Exchange_Rate']:.2f} | {row['Revenue_HTG']:,.2f} HTG\n"
+        
+    report_string += f"\n=== END OF REPORT - SECURITY VERIFIED ARCHIVE ==="
+
+    # Interactive Downloader Button Element
+    st.download_button(
+        label=ln["report_btn"],
+        data=report_string,
+        file_name=f"toussaint_louverture_airport_report_{selected_lang.lower().replace(' ', '_')}.txt",
+        mime="text/plain"
+    )
+
+# 8. Global Platform Footer (Strong white alignment lock, pushed to the right side)
 st.markdown(
     """
     <div class="footer-white-right">
