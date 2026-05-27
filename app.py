@@ -64,6 +64,18 @@ st.markdown(
         color: #f1b517 !important;
         font-weight: bold;
     }
+    
+    /* Styling for the requested strong white statement */
+    .branding-banner {
+        color: #ffffff !important;
+        font-weight: 800 !important;
+        font-size: 1.1rem;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 10px 15px;
+        border-radius: 6px;
+        border-left: 4px solid #ffffff;
+        margin-bottom: 20px;
+    }
     </style>
     """,
     unsafe_allow_html=True
@@ -126,6 +138,12 @@ with col_left:
     st.markdown('</div>', unsafe_allow_html=True)
 
 with col_right:
+    # Strong White Branding Statement featured right at the top of the main page workspace
+    st.markdown(
+        '<div class="branding-banner">© 2026 GLOBALINTERNET.PY | Global Software Architectures & Technology Innovation.</div>',
+        unsafe_allow_html=True
+    )
+    
     st.title("✈️ Toussaint Louverture Airport Revenue Tracking")
     st.markdown("### National Treasury Ingestion Overview (2010 - 2021)")
     
