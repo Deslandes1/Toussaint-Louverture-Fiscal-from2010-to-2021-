@@ -10,20 +10,25 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# 2. Custom CSS Injection (Fixed Typography Parameter & Beautiful Theme Gradients)
+# 2. Custom CSS Injection (Synchronized Sidebar and Main Page Gradients)
 st.markdown(
     """
     <style>
-    /* Gradient styling for the global background canvas */
-    .stApp {
-        background-color: #0f172a;
+    /* Gradient styling for the global background canvas and the sidebar */
+    .stApp, div[data-testid="stSidebar"] {
+        background-color: #0f172a !important;
         background-image: radial-gradient(at 0% 0%, hsla(222,47%,16%,1) 0, transparent 50%), 
                           radial-gradient(at 100% 0%, hsla(354,85%,18%,1) 0, transparent 50%),
-                          radial-gradient(at 50% 100%, hsla(215,80%,20%,1) 0, transparent 50%);
-        background-attachment: fixed;
+                          radial-gradient(at 50% 100%, hsla(215,80%,20%,1) 0, transparent 50%) !important;
+        background-attachment: fixed !important;
     }
     
-    /* Strict high-contrast text color overrides for visibility */
+    /* Remove default Streamlit border line on the sidebar for a seamless look */
+    div[data-testid="stSidebar"] {
+        border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+    
+    /* Strict high-contrast text color overrides for absolute visibility */
     h1, h2, h3, h4, p, span, label, div[data-testid="stWidgetLabel"] p {
         color: #ffffff !important;
     }
@@ -54,7 +59,7 @@ st.markdown(
     }
     </style>
     """,
-    unsafe_allow_html=True  # FIXED: Changed from unsafe_allow_not_allowed to native parameter
+    unsafe_allow_html=True
 )
 
 # 3. Hardcoded Historical Data Dictionary (2010 - 2021)
@@ -79,7 +84,7 @@ def load_airport_data():
 
 df = load_airport_data()
 
-# 4. Sidebar Branding Controls
+# 4. Sidebar Branding Controls (Now completely readable with Dark Background)
 st.sidebar.markdown("## 🌐 GlobalInternet.py")
 st.sidebar.markdown("### Airport Fiscal Engine")
 st.sidebar.markdown("Developed by: **Gesner DESLANDES**")
